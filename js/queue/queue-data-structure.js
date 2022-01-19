@@ -13,14 +13,14 @@ class Queue {
   }
 
   enqueue(item) {
-    if (this.canEnqueue()) this.queueControl.push(item);
+    if (this.canEnqueue()) this.queueControl.unshift(item);
     else throw new Error('QUEUE_OVERFLOW');
 
     return this.display();
   }
 
   dequeue() {
-    if (!this.isEmpty()) return this.queueControl.shift();
+    if (!this.isEmpty()) return this.queueControl.pop();
     else throw new Error('QUEUE_UNDERFLOW');
   }
 
