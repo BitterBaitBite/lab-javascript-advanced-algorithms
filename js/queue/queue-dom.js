@@ -1,4 +1,4 @@
-const queueUL = document.querySelector('.list-queue');
+const queueUL = document.querySelector('#queue-list');
 const queueInput = document.querySelector('.queue-input');
 const warningTopQueue = document.querySelector('#queue-container .warning-top');
 const warningBottomQueue = document.querySelector(
@@ -18,8 +18,9 @@ const clearQueueInput = () => {
 };
 
 const generateListQueue = () => {
-  let visualQueue = document.querySelectorAll('.list-queue li');
-  for (let i = 0; i < queue.display().length; i++) {
+  let visualQueue = queueUL.querySelectorAll('li');
+
+  for (let i = queue.display().length - 1; i >= 0; i--) {
     visualQueue[i].classList.replace('inactive', 'active');
     visualQueue[i].textContent = queue.display()[i];
   }
